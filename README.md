@@ -5,3 +5,7 @@ https://www.goodto.com/family/things-to-do/how-to-play-bingo-rules-explained-575
 
 Personal project to develop a Bingo Game
 
+## Functionalities
+
+- Add/remove credits
+- Generate random card
