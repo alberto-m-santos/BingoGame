@@ -8,6 +8,7 @@ int main()
 {
     int numero;
     cout << "numero" << endl;
+    cout << "numero" << endl;
     cin >> numero;
 
     return numero;
