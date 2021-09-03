@@ -10,6 +10,7 @@ int main()
     cout << "numero" << endl;
     cout << "numero" << endl;
     cout << "numero" << endl;
+    cout << "numero" << endl;
     cin >> numero;
 
     return numero;
