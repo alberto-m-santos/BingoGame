@@ -12,7 +12,8 @@ using namespace std;
 class Player
 {
 private:
-    bool winner = false;
+    bool WinLine = false;
+    bool WinBingo = false;
 
 public:
     int card[3][5]={{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
@@ -26,7 +27,8 @@ public:
 void Player::Readcard()
 {
     for(int row=0; row<3; row++){
-        for(int col=0; col<5; col++){
+        for(int col=0; col<5; col++)
+        {
             cout << card[row][col]<<" ";
         }
         cout << endl;
@@ -35,8 +37,10 @@ void Player::Readcard()
 
 void Player::Setcard(int c[3][5])
 {
-    for(int row=0; row<3; row++){
-        for(int col=0; col<5; col++){
+    for(int row=0; row<3; row++)
+    {
+        for(int col=0; col<5; col++)
+        {
             card[row][col] = c[row][col];
         }
     }
@@ -44,8 +48,10 @@ void Player::Setcard(int c[3][5])
 
 void Player::Markoffnumber(int n)
 {
-    for(int row=0; row<3; row++){
-        for(int col=0; col<5; col++){
+    for(int row=0; row<3; row++)
+    {
+        for(int col=0; col<5; col++)
+        {
             if(card[row][col] == n){
                 card[row][col] = 0;
                 Checkwin();
@@ -56,16 +62,42 @@ void Player::Markoffnumber(int n)
 
 void Player::Checkwin()
 {
-    for(int row=0; row<3; row++){
-        for(int col=0; col<5; col++){
-            if(card[row][col] == n){
-                card[row][col] = 0;
-                Checkwin();
-            }
+    int contlines=0; //Number of lines to get Bingo
+    for(int row=0; row<3; row++)
+    {
+        if(card[row][0]==0 && card[row][1]==0 && card[row][2]==0 && card[row][3]==0 && card[row][4]==0) //Check line
+        {
+            WinLine = true;
+            contlines++;
+        }
+        if(contlines==3)
+        {
+            WinBingo = true;
         }
     }
 }
 
+class Game
+{
+private:
+    int cont = 0;
+    int RandNumbers[30];
+    Player X;
+
+public:
+    Game();
+    void Write(string outfile);
+    void Read(string outfile);
+    void Shuffle();
+};
+
+Game::Game()
+{
+    Write("Welcome to Bingo!");
+    Shuffle();
+    Write("Player's card");
+    Read("Player's card");
+}
 
 int main()
 {
