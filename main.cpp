@@ -1,24 +1,14 @@
-#include <SFML/Graphics.hpp>
+#include <bits/stdc++.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+using namespace std;
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(400, 400), "Bingo Game");
-    sf::CircleShape shape(200.f);
-    shape.setFillColor(sf::Color::Green);
+    int numero;
+    cout << "numero" << endl;
+    cin >> numero;
 
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-        window.clear();
-        window.draw(shape);
-        window.display();
-    }
-
-    return 0;
+    return numero;
 }
