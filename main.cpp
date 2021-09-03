@@ -17,7 +17,9 @@ private:
 public:
     int card[3][5]={{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
     void Readcard();
-    void Marknumber (int x);
+    void Setcard(int c[3][5]);
+    void Markoffnumber (int x);
+    void Checkwin();
     int credits;
 };
 
@@ -31,6 +33,38 @@ void Player::Readcard()
     }
 }
 
+void Player::Setcard(int c[3][5])
+{
+    for(int row=0; row<3; row++){
+        for(int col=0; col<5; col++){
+            card[row][col] = c[row][col];
+        }
+    }
+}
+
+void Player::Markoffnumber(int n)
+{
+    for(int row=0; row<3; row++){
+        for(int col=0; col<5; col++){
+            if(card[row][col] == n){
+                card[row][col] = 0;
+                Checkwin();
+            }
+        }
+    }
+}
+
+void Player::Checkwin()
+{
+    for(int row=0; row<3; row++){
+        for(int col=0; col<5; col++){
+            if(card[row][col] == n){
+                card[row][col] = 0;
+                Checkwin();
+            }
+        }
+    }
+}
 
 
 int main()
