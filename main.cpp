@@ -14,15 +14,23 @@ class Player
 private:
     bool WinLine = false;
     bool WinBingo = false;
+    int credits;
 
 public:
+    Player(bool WinLine, bool WinBingo, int credits);
     int card[3][5]={{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
     void Readcard();
     void Setcard(int c[3][5]);
     void Markoffnumber (int x);
     void Checkwin();
-    int credits;
 };
+
+Player::Player(bool WinLine, bool WinBingo, int credits)
+{
+    this->WinLine = WinLine;
+    this->WinBingo = WinBingo;
+    this->credits = credits;
+}
 
 void Player::Readcard()
 {
