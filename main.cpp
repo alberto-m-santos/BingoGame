@@ -17,6 +17,7 @@ private:
     int credits;
 
 public:
+    Player();
     Player(bool WinLine, bool WinBingo, int credits);
     int card[3][5]={{0,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
     void Readcard();
@@ -24,6 +25,13 @@ public:
     void Markoffnumber (int x);
     void Checkwin();
 };
+
+Player::Player()
+{
+    this->WinLine = false;
+    this->WinBingo = false;
+    this->credits = 0;
+}
 
 Player::Player(bool WinLine, bool WinBingo, int credits)
 {
@@ -92,14 +100,16 @@ private:
     int RandNumbers[30];
     Player X;
 
+
 public:
     Game();
+    Game(int cont, int RandNumbers[30], Player &X);
     void Write(string outfile);
     void Read(string outfile);
     void Shuffle();
 };
 
-Game::Game()
+Game::Game(int cont, int RandNumbers[30], Player &X)
 {
     Write("Welcome to Bingo!");
     Shuffle();
@@ -107,7 +117,15 @@ Game::Game()
     Read("Player's card");
 }
 
+void Game::Shuffle()
+{
+    
+}
+
 int main()
 {
+    Player X(false,false,100);
+    //Game();
     return 0;
+
 }
